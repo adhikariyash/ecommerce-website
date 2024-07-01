@@ -1,10 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
-function Top() {
+function TOP() {
   return (
     <div>
-    <div className="flex justify-center items-center text-start md:mr-80 lg:mr-[42.5rem] ">
+      <div className="flex justify-center items-center text-start md:mr-80 lg:mr-[42.5rem] ">
       <h2 className="font-bold text-2xl p-4 border-b-2">
         <span className="bg-black rounded-full">.</span> Top seller
       </h2>
@@ -12,12 +11,6 @@ function Top() {
 
     <div className="border-2">
       <div className="text-end p-3 flex lg:ml-[53rem] justify-center md:ml-[29rem] ml-[17rem]">
-        <Link
-          className="md:mr-4 border-2 p-1.5 font-semibold rounded-lg"
-          to="/top"
-        >
-          View All
-        </Link>
       </div>
       <div className="p-1 flex justify-center items-center">
         <div className="grid grid-cols-2 gap-1 md:grid-cols-3 lg:grid-cols-4 justify-center items-center">
@@ -98,8 +91,8 @@ function Top() {
         </div>
       </div>
     </div>
-  </div>
+    </div>
   )
 }
 
-export default Top
+export default TOP

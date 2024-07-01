@@ -7,6 +7,9 @@ import Product from './Product'
 import Contact from './Contact'
 import TodayDeal from '../Product-pages/TodayDeal'
 import Cart from './Cart'
+import Seasonal from '../Product-pages/Seasonal'
+import TOP from '../Product-pages/TOP'
+import Footer from './Footer'
 
 function Router() {
   return (
@@ -17,11 +20,14 @@ function Router() {
         <Route  path="/product" element={<Product/>}/>
         <Route  path="/about" element={<About />}/>
         <Route path ="/today" element={<TodayDeal />}/>
+        <Route path='/seasonal' element={<Seasonal/>}/>
+        <Route path='/top' element={<TOP/>}/>
         <Route  path="/contact" element={<Contact/>}/>
         <Route path="/cart" element={<Cart/>}/>
         
 
     </Routes>
+    <Footer/>
 
 
     </BrowserRouter>

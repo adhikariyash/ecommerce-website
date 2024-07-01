@@ -5,7 +5,7 @@ import Top from "./Top";
 
 function Home() {
   return (
-    <section>
+    <section id="Home">
       <TodaysDeal/>
       <Seasonal/>
       <Top/>

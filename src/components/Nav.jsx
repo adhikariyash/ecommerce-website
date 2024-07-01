@@ -34,7 +34,7 @@ const Navbar = () => {
             <div>
               {/* Logo */}
               <Link to="/" className="flex items-center py-4 px-2 gap-2">
-               <img className='h-20 backdrop-opacity-55 rounded-full border-2 border-yellow-400 bg-yellow-400 shadow-lg' src="/public/Untitled.png" alt="Logo" />
+               <img className='h-20 backdrop-opacity-55 rounded-full border-2 border-yellow-400 bg-yellow-400 shadow-lg' src="/Untitled.png" alt="Logo" />
                <span className='font-bold text-2xl'>Buybay</span>
               </Link>
              
