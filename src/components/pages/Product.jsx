@@ -3,7 +3,7 @@ import React from 'react'
 function Product() {
   return (
     <div>
-      i am Product
+      I am product
     </div>
   )
 }

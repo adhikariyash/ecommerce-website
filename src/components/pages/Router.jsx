@@ -10,6 +10,7 @@ import Cart from './Cart'
 import Seasonal from '../Product-pages/Seasonal'
 import TOP from '../Product-pages/TOP'
 import Footer from './Footer'
+import Data from '../Product-pages/data'
 
 function Router() {
   return (
@@ -23,7 +24,7 @@ function Router() {
         <Route path='/seasonal' element={<Seasonal/>}/>
         <Route path='/top' element={<TOP/>}/>
         <Route  path="/contact" element={<Contact/>}/>
-        <Route path="/cart" element={<Cart/>}/>
+        <Route path="/cart"  element={<Cart/>} render={(props) => <Electronic {...props} data={Data.todaysDeals} />}/>
         
 
     </Routes>
@@ -31,6 +32,8 @@ function Router() {
 
 
     </BrowserRouter>
+
+    
 
   )
 }
