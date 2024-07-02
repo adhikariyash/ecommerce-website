@@ -24,7 +24,7 @@ function Router() {
         <Route path='/seasonal' element={<Seasonal/>}/>
         <Route path='/top' element={<TOP/>}/>
         <Route  path="/contact" element={<Contact/>}/>
-        <Route path="/cart"  element={<Cart/>} render={(props) => <Electronic {...props} data={Data.todaysDeals} />}/>
+        <Route path="/cart"  element={<Cart/>} />
         
 
     </Routes>

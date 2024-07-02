@@ -1,105 +1,43 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import Data from "../Product-pages/data";
+import Button from './button'
 
-function Top() {
+
+function TodaysDeal() {
+  const calculateDiscountedPrice = (price, discount) => {
+    const discountedPrice = price - (price * discount) / 100;
+    return discountedPrice.toFixed(2);
+  };
   return (
-    <div>
-    <div className="flex justify-center items-center text-start md:mr-80 lg:mr-[42.5rem] ">
-      <h2 className="font-bold text-2xl p-4 border-b-2">
-        <span className="bg-black rounded-full">.</span> Top seller
-      </h2>
-    </div>
-
-    <div className="border-2">
-      <div className="text-end p-3 flex lg:ml-[53rem] justify-center md:ml-[29rem] ml-[17rem]">
-        <Link
-          className="md:mr-4 border-2 p-1.5 font-semibold rounded-lg"
-          to="/top"
-        >
-          View All
-        </Link>
+    <div className="flex flex-col items-center">
+      <div className="flex justify-center items-center text-start md:mr-80 lg:mr-[42.5rem] ">
+        <h2 className="font-bold text-2xl p-4 border-b-2">
+          <span className="bg-black rounded-full">.</span> Top choices
+        </h2>
       </div>
-      <div className="p-1 flex justify-center items-center">
-        <div className="grid grid-cols-2 gap-1 md:grid-cols-3 lg:grid-cols-4 justify-center items-center">
-          {/* product one */}
-          <div className="p-1 lg:p-4  border-2 rounded-lg mb-5">
-            <img
-              className="h-40 w-48"
-              src="/src/assets/pc5.jpg"
-              alt="Product 1"
-            />
-            <div>
-           <div className='flex justify-between px-2 items-center'>
-           <span className='bg-red-500 text-white p-0.5  text-sm font-bold'>4.5</span>  <span className='font-bold text-xs'>30k ratings</span>
-           </div>
-            <h2 className="text-center font-semibold text-sm lg:text-md mt-1 mb-2">Saton5XZ i9 12gen 406..</h2>
-      {/* this h2 should be link to the shown img here!! IMPORTANT */}
-              <div className="flex gap-1 justify-between items-center">
-                <span className="text-green-600 font-bold text-sm lg:text-lg ml-2">$2199 </span>
-                <span className="font-semibold border-2 p-1.5 rounded-full text-md bg-gray-200 lg:text-lg">🛒</span>
+     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center w-fit items-center">
+        {Data.topSellers.map((product) => (
+          <div key={product.id} className="border border-gray-200  flex justify-center item center flex-col rounded-lg overflow-hidden shadow-md p-2">
+            <img src={product.img} alt={product.name}className="h-48 w-64" />
+            {console.log(product.img)}
+            <div className="">
+              <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-red-400 font-bold text-decoration-line: line-through">${product.price}</span>
+                <span className=" p-1 text-sm bg-red-500 text-white font-bold">{product.discount}% OFF </span>
+                
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-green-600 font-bold">${calculateDiscountedPrice(product.price, product.discount)}</span>
+                <Button product={product} />
               </div>
             </div>
           </div>
-          {/* product One */}
-          <div className="p-1 lg:p-4  border-2 rounded-lg mb-5">
-            <img
-              className="h-40 w-48"
-              src="/src/assets/headset1.png"
-              alt="Product 1"
-            />
-            <div>
-            <div className='flex justify-between px-2 items-center'>
-           <span className='bg-red-500 text-white p-0.5  text-sm font-bold'>4.7</span>  <span className='font-bold text-xs'>70k ratings</span>
-           </div>
-            <h2 className="text-center font-semibold text-sm lg:text-md mt-1 mb-2">RadGon Wireless Headset..</h2>
-      {/* this h2 should be link to the shown img here!! IMPORTANT */}
-              <div className="flex gap-1 justify-between items-center">
-                <span className="text-green-600 font-bold text-sm lg:text-lg md:ml-2">$299</span>
-                <span className="font-semibold border-2 p-1.5 rounded-full text-md bg-gray-200 lg:text-lg">🛒</span>
-              </div>
-            </div>
-          </div>
-          <div className="p-1 lg:p-4  border-2 rounded-lg mb-5">
-            <img
-              className="h-40 w-48"
-              src="/src/assets/cooler2.jpg"
-              alt="Product 1"
-            />
-            <div>
-            <div className='flex justify-between px-2 items-center'>
-           <span className='bg-red-500 text-white p-0.5  text-sm font-bold'>4.5</span>  <span className='font-bold text-xs'>40k ratings</span>
-           </div>
-            <h2 className="text-center font-semibold text-sm lg:text-md mt-1 mb-2">Asus Icy COOL CPU COOL..</h2>
-      {/* this h2 should be link to the shown img here!! IMPORTANT */}
-              <div className="flex gap-1 justify-between items-center">
-                <span className="text-green-600 font-bold text-sm lg:text-lg md:ml-2">$599</span>
-                <span className="font-semibold border-2 p-1.5 rounded-full text-md bg-gray-200 lg:text-lg">🛒</span>
-              </div>
-            </div>
-          </div>
-          <div className="p-1 lg:p-4  border-2 rounded-lg mb-5">
-            <img
-              className="h-40 w-48"
-              src="/src/assets/tv1.jpg"
-              alt="Product 1"
-            />
-            <div>
-            <div className='flex justify-between px-2 items-center'>
-           <span className='bg-red-500 text-white p-0.5  text-sm font-bold'>4.9</span>  <span className='font-bold text-xs'>190k ratings</span>
-           </div>
-            <h2 className="text-center font-semibold text-sm lg:text-md mt-1 mb-2">RedLion Smart Television wi..</h2>
-      {/* this h2 should be link to the shown img here!! IMPORTANT */}
-              <div className="flex gap-1 justify-between items-center">
-                <span className="text-green-600 font-bold text-sm lg:text-lg md:ml-2">$1330</span>
-                <span className="font-semibold border-2 p-1.5 rounded-full text-md bg-gray-200 lg:text-lg">🛒</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
-  </div>
-  )
+  
+  );
 }
 
-export default Top
+export default TodaysDeal;
