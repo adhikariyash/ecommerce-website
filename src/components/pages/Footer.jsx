@@ -1,13 +1,11 @@
-import React from 'react'
-function Footer() {
-  return (
-   <footer>
-    < div className="main p-4 ">
-        
-     
-  </div>
-  </footer>
-  )
-}
+import React from 'react';
 
-export default Footer
+const Footer = () => {
+  return (
+    <footer className="bg-gray-800 text-white text-center py-4 mt-6">
+      <p>&copy; {new Date().getFullYear()} MeTech's. All rights reserved.</p>
+    </footer>
+  );
+};
+
+export default Footer;
