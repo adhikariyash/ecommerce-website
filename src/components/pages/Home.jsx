@@ -3,12 +3,12 @@ import TodaysDeal from "./TodaysDeal";
 import Seasonal from "./Seasonal";
 import Top from "./Top";
 
-function Home() {
+function Home({handleClick}) {
   return (
-    <section id="Home">
-      <TodaysDeal/>
-      <Seasonal/>
-      <Top/>
+    <section>
+      <TodaysDeal handleClick={handleClick}/>
+      <Seasonal handleClick={handleClick}/>
+      <Top handleClick={handleClick}/>
     </section>
   );
 }
