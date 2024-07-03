@@ -1,1 +1,1 @@
-<a href="https://metechs.netlify.app/"> to see the live demo</a>
+<a href="https://metechs.netlify.app/" target="_blank"> to see the live demo</a>
