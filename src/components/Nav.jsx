@@ -39,7 +39,7 @@ const Navbar = ({ size }) => {
                   src="/Untitled.png"
                   alt="Logo"
                 />
-                <span className="font-bold text-2xl">Buybay</span>
+                <span className="font-bold text-2xl">MeTech's</span>
               </Link>
             </div>
 
@@ -73,7 +73,7 @@ const Navbar = ({ size }) => {
                 Contact
               </Link>
               <div >
-                {' '}
+               
                 <Link
                   to="/cart"
                   className="py-2 px-2 text-gray-500 border-2 border-transparent hover:border-red-500 hover:text-red-500 transition duration-300 bg-gray-200 rounded-full relative"
@@ -146,13 +146,18 @@ const Navbar = ({ size }) => {
             </Link>
           </li>
           <li>
-            <Link
+          <div>
+          <Link
               to="/cart"
               className="block text-sm px-2 py-4 hover:bg-red-500 transition duration-300"
               onClick={closeMenu}
             >
               🛒
             </Link>
+            <span className="relative left-4 bottom-8 text-[8px]  md:bottom-3 md:text-xs md:right-[1rem] font-bold bg-red-500 text-white p-0.5 rounded-full px-[0.3rem]">
+                  {size}
+                </span>
+          </div>
           </li>
         </ul>
       </div>

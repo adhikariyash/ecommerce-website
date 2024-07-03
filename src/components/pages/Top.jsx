@@ -13,8 +13,8 @@ function Top({handleClick}) {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center w-fit items-center">
         {Data.topSellers.map((product) => (
-          <div key={product.id} className="border border-gray-200 flex justify-center items-center flex-col rounded-lg overflow-hidden shadow-md p-2">
-            <img src={product.img} alt={product.name} className="h-48 w-64" />
+          <div key={product.id} className="border border-gray-200 flex justify-center items-center flex-col rounded-lg overflow-hidden shadow-md w-72 p-2">
+            <img src={product.img} alt={product.name} className="h-48 w-52" />
             <div className="container">
               <div className='flex justify-between'>
               <h3 className="text-lg font-semibold mb-2">{product.name}</h3>

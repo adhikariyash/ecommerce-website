@@ -13,11 +13,11 @@ const Cart = ({ cart, handleQuantityChange }) => {
   return (
     <div className='mt-28 overflow-scroll'>
       {cart.length === 0 ? (
-        <div> 
-        <p className='font-bold'>Your cart is empty  add items to cart? </p>
-        <Link exact path='/'>home</Link>
+        <div className='h-screen flex justify-center items-center flex-col md:flex-row '>
+         <div className=''> <img  className=" h-80" src="/empty.jpg" alt="empty" /></div>
+          <div><p className='font-bold mb-1 text-2xl'>Your cart is empty. </p>
+          <p className='z-10 font-semibold font-serif bg-white p-1'>Would you like to <Link to='/product' className='text-blue-500 underline'>add items to cart</Link>?</p></div>
         </div>
-      
       ) : (
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
