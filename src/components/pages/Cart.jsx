@@ -10,34 +10,39 @@ const Cart = ({ cart, handleQuantityChange }) => {
     return product.price;
   };
 
+  const calculateTotalPrice = (product) => {
+    const priceAfterDiscount = applyDiscount(product);
+    return priceAfterDiscount * product.quantity;
+  };
+
   return (
-    <div className='mt-28 overflow-scroll'>
+    <div className='mt-28 overflow-scroll flex justify-center items-center '>
       {cart.length === 0 ? (
-        <div className='h-screen flex justify-center items-center flex-col md:flex-row '>
-         <div className=''> <img  className=" h-80" src="/empty.jpg" alt="empty" /></div>
-          <div><p className='font-bold mb-1 text-2xl'>Your cart is empty. </p>
-          <p className='z-10 font-semibold font-serif bg-white p-1'>Would you like to <Link to='/product' className='text-blue-500 underline'>add items to cart</Link>?</p></div>
+        <div className='h-screen flex justify-center items-center'>
+          <div><img className='h-72' src='/empty.jpg' alt="Empty" /></div>
+         <div> <p className='font-bold mb-2'>Your cart is empty.</p>
+          <p className='font-semibold font-sans'>Would you like to <Link to='/product' className='text-blue-500 underline'>add items to cart</Link>?</p></div>
         </div>
       ) : (
-        <table className="min-w-full divide-y divide-gray-200">
+        <table className="min-w-1/2 divide-y divide-gray-200 ">
           <thead className="bg-gray-50">
             <tr>
-              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th scope="col" className="px-16 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Image
               </th>
-              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th scope="col" className="px-10 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Name
               </th>
-              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th scope="col" className="px-10 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Quantity
               </th>
-              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th scope="col" className="px-10 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Discount
               </th>
-              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th scope="col" className=" py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Actual Price
               </th>
-              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th scope="col" className="px-5 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Total Price
               </th>
             </tr>
@@ -52,12 +57,12 @@ const Cart = ({ cart, handleQuantityChange }) => {
                   <div className="text-sm font-medium text-gray-900">{product.name}</div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="flex items-center">
-                    <button className='font-bold p-2 border-2' onClick={() => handleQuantityChange(product.id, 'decrease')}>
+                  <div className="flex items-center gap-3">
+                    <button className='font-bold p-1 px-3 border-2' onClick={() => handleQuantityChange(product.id, 'decrease')}>
                       -
                     </button>
-                    <p className='font-bold px-4'>{product.quantity}</p>
-                    <button className='font-bold p-2 border-2' onClick={() => handleQuantityChange(product.id, 'increase')}>
+                    <p className='font-bold '>{product.quantity}</p>
+                    <button className='font-bold p-1 px-3 border-2' onClick={() => handleQuantityChange(product.id, 'increase')}>
                       +
                     </button>
                   </div>
@@ -71,14 +76,14 @@ const Cart = ({ cart, handleQuantityChange }) => {
                       ${applyDiscount(product)}
                     </p>
                   ) : (
-                    <p>Price: ${product.price}</p>
+                    <p>No discount</p>
                   )}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   ${product.price}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  ${product.totalPrice}
+                  ${calculateTotalPrice(product)}
                 </td>
               </tr>
             ))}

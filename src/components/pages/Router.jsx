@@ -53,7 +53,7 @@ function Router() {
       <Navbar size={cart.length} />
       <Routes>
         <Route exact path="/" element={<Home handleClick={handleClick} />} />
-        <Route path="/product" element={<Product />} />
+        <Route path="/product" element={<Product handleClick={handleClick} />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route
