@@ -62,7 +62,7 @@ function Router() {
         <Route path="/product/:id" element={<Slug handleClick={handleClick} />} />
         <Route
           path="/cart"
-          element={<Cart cart={cart} updateCart={updateCart} clearCart={clearCart} />}
+          element={<Cart cart={cart} updateCart={updateCart} clearCart={clearCart} handleQuantityChange={handleQuantityChange} />}
         />
       </Routes>
     </BrowserRouter>
