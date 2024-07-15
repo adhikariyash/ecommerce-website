@@ -1,5 +1,6 @@
 import React from 'react';
 import Data from '../Product-pages/data';
+import { Link } from 'react-router-dom';
 
 function Top({handleClick}) {
 
@@ -17,7 +18,9 @@ function Top({handleClick}) {
             <img src={product.img} alt={product.name} className="h-48 w-52" />
             <div className="container">
               <div className='flex justify-between'>
-              <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
+              <h1 className="text-lg font-semibold mb-2">
+                <Link to={`/product/${product.id}`}>{product.name}</Link>
+              </h1>
               <span className='font-bold'>{product.rating}⭐</span>
               </div>
             

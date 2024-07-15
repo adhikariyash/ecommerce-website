@@ -4,18 +4,20 @@ import Navbar from '../Nav';
 import Home from './Home';
 import About from './About';
 import Product from './Product';
-import Contact from './Contact';
 import Cart from './Cart';
-import Footer from './Footer';
+import Slug from './slug';
 
 function Router() {
   const [cart, setCart] = useState([]);
+
+  const clearCart = () => {
+    setCart([]);
+  };
 
   const handleClick = (product) => {
     const existingProductIndex = cart.findIndex(item => item.id === product.id);
 
     if (existingProductIndex !== -1) {
-      // If found, update the quantity
       const updatedCart = [...cart];
       if (updatedCart[existingProductIndex].quantity > 0) {
         updatedCart[existingProductIndex].quantity += 1;
@@ -23,10 +25,13 @@ function Router() {
       }
       setCart(updatedCart);
     } else {
-      // If not found, add the product to the cart
       setCart(prevCart => [...prevCart, { ...product, quantity: 1, totalPrice: product.price }]);
     }
-  }
+  };
+
+  const updateCart = (updatedCart) => {
+    setCart(updatedCart);
+  };
 
   const handleQuantityChange = (productId, change) => {
     const updatedCart = [...cart];
@@ -40,7 +45,6 @@ function Router() {
         updatedCart[index].quantity -= 1;
         updatedCart[index].totalPrice -= updatedCart[index].price;
         if (updatedCart[index].quantity === 0) {
-          // Remove the item if quantity drops to zero
           updatedCart.splice(index, 1);
         }
       }
@@ -55,13 +59,12 @@ function Router() {
         <Route exact path="/" element={<Home handleClick={handleClick} />} />
         <Route path="/product" element={<Product handleClick={handleClick} />} />
         <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/product/:id" element={<Slug handleClick={handleClick} />} />
         <Route
           path="/cart"
-          element={<Cart cart={cart} handleQuantityChange={handleQuantityChange} />}
+          element={<Cart cart={cart} updateCart={updateCart} clearCart={clearCart} />}
         />
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 }

@@ -30,10 +30,10 @@ const Navbar = ({ size }) => {
     <nav className="bg-white shadow-lg fixed top-0 w-full z-50" ref={menuRef}>
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-between md:justify-center">
-          <div className="flex justify-between gap-10">
+          <div className="flex justify-between gap-16">
             <div>
               {/* Logo */}
-              <Link to="/" className="flex items-center py-4 px-2 gap-2">
+              <Link to="/" className="flex items-center py-4 px-2 gap-4">
                 <img
                   className="h-20 backdrop-opacity-55 rounded-full border-2 border-yellow-400 bg-yellow-400 shadow-lg"
                   src="/Untitled.png"
@@ -43,7 +43,7 @@ const Navbar = ({ size }) => {
               </Link>
             </div>
 
-            <div className="hidden md:flex items-center space-x-1">
+            <div className="hidden md:flex items-center space-x-4">
               <Link
                 to="/"
                 className="py-4 px-2 text-gray-500 border-b-4 border-transparent hover:border-red-500 hover:text-red-500 transition duration-300"
@@ -65,13 +65,7 @@ const Navbar = ({ size }) => {
               >
                 About
               </Link>
-              <Link
-                to="/contact"
-                className="py-4 px-2 text-gray-500 border-b-4 border-transparent hover:border-red-500 hover:text-red-500 transition duration-300"
-                onClick={closeMenu}
-              >
-                Contact
-              </Link>
+            
               <div >
                
                 <Link
@@ -136,15 +130,7 @@ const Navbar = ({ size }) => {
             </Link>
           </li>
 
-          <li>
-            <Link
-              to="/contact"
-              className="block text-sm px-2 py-4 hover:bg-red-500 transition duration-300"
-              onClick={closeMenu}
-            >
-              Contact
-            </Link>
-          </li>
+         
           <li>
           <div>
           <Link

@@ -1,8 +1,14 @@
 import React from 'react';
 import Data from '../Product-pages/data';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Mobile({handleClick}) {
-
+  const [showPopup, setShowPopup] = useState(false); 
+  const addToCart = (product) => {
+    handleClick(product);
+    setShowPopup(true); // Show popup when item is added to cart
+    setTimeout(() => setShowPopup(false), 10000); }
  
   return (
     <div className="flex flex-col items-center mt-10">
@@ -16,16 +22,28 @@ function Mobile({handleClick}) {
             <img src={product.img} alt={product.name} className="h-48 w-52" />
             <div className="container">
               <div className='flex justify-between'>
-              <h3 className="text-lg font-semibold mt-3 mb-1">{product.name}</h3>
+              <h1 className="text-lg font-semibold mb-2">
+                <Link to={`/product/${product.id}`}>{product.name}</Link>
+              </h1>
               </div>
             
               <div className="flex justify-between items-center">
                 <span className="text-green-600 font-bold">${product.price}</span>
-                <button onClick={() => handleClick(product)} className="font-bold border-2 p-1 rounded-full text-2xl hover:border-green-400">🛒</button>
+                <button onClick={() => addToCart(product)} className="font-bold border-2 p-1 rounded-full text-2xl hover:border-green-400">🛒</button>
               </div>
             </div>
           </div>
         ))}
+         {/* Popup for cart confirmation */}
+      {showPopup && (
+        <div className="fixed bottom-10 right-10 bg-black p-4 rounded-lg shadow-md border border-gray-300">
+          <p className="text-lg text-green-600">🎊Item added to cart🎊!</p>
+          <div className="flex justify-end mt-4 space-x-4">
+            <button onClick={() => setShowPopup(false)} className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">Close</button>
+            <Link to="/cart" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">View Cart</Link>
+          </div>
+        </div>
+      )}
       </div>
     </div>
   );
