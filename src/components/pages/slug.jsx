@@ -22,7 +22,7 @@ function Slug({ handleClick }) {
   };
 
   return (
-    <div className="flex flex-col h-screen items-center justify-center w-full">
+    <div className="flex flex-col h-screen items-center justify-center mt-24 w-full">
       <div className="flex flex-col gap-16 sm:flex-row rounded-lg overflow-hidden p-10 justify-center items-center">
         <div className='border-4 '>
           <img src={product.img} alt={product.name} className="w-[100vw]" />

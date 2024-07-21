@@ -134,7 +134,7 @@ const Cart = ({ cart, updateCart, clearCart }) => {
         </table>
       </div>
 
-      <div className=" bg-white p-4 shadow-lg rounded-lg translate-y-[50vw]">
+      <div className=" bg-white p-4 shadow-lg rounded-lg fixed bottom-[6rem]">
         <div className="flex items-center gap-4">
           <p className="text-lg font-semibold">Total: ${calculateTotalPrice()}</p>
           <button onClick={handleCheckout} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

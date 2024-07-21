@@ -6,6 +6,7 @@ import About from './About';
 import Product from './Product';
 import Cart from './Cart';
 import Slug from './slug';
+import AdminPage from './Admin';
 
 function Router() {
   const [cart, setCart] = useState([]);
@@ -64,6 +65,7 @@ function Router() {
           path="/cart"
           element={<Cart cart={cart} updateCart={updateCart} clearCart={clearCart} handleQuantityChange={handleQuantityChange} />}
         />
+        <Route path = '/Admin' element ={<AdminPage/>}></Route>
       </Routes>
     </BrowserRouter>
   );
