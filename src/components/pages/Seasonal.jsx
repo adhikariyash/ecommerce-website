@@ -13,14 +13,14 @@ function TodayDeal({ handleClick }) {
   const addToCart = (product) => {
     handleClick(product);
     setShowPopup(true); // Show popup when item is added to cart
-    setTimeout(() => setShowPopup(false), 3000); // Hide popup after 3 seconds
+    setTimeout(() => setShowPopup(false), 10000); 
   };
 
   return (
-    <div className="flex flex-col items-center mt-10">
+    <div className="flex flex-col items-center mt-32">
       <div className="flex justify-center items-center text-start md:mr-80 lg:mr-[42.5rem]">
         <h2 className="font-bold text-2xl p-4 border-b-2">
-          <span className="bg-black rounded-full">.</span> seasonal Offers
+          <span className="bg-black rounded-full">.</span> Seasonal offers
         </h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center w-fit items-center">
@@ -43,13 +43,13 @@ function TodayDeal({ handleClick }) {
           </div>
         ))}
       </div>
+      
       {showPopup && (
         <div className="fixed bottom-10 right-10 bg-black p-4 rounded-lg shadow-md border border-gray-300">
-          <p className="text-lg text-green-600">🎊Item added to cart🎊</p>
-          <div className="flex justify-end mt-4">
-          <Link to="/cart">
-              <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">View Cart</button>
-            </Link>
+          <p className="text-lg text-green-600">🎊Item added to cart🎊!</p>
+          <div className="flex justify-end mt-4 space-x-4">
+            <button onClick={() => setShowPopup(false)} className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">Close</button>
+            <Link to="/cart" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">View Cart</Link>
           </div>
         </div>
       )}
