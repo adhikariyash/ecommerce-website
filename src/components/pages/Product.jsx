@@ -50,7 +50,7 @@ function Product({ handleClick }) {
             <img
               src={item.img}
               alt={item.name}
-              className="w-full h-52 object-cover mb-4"
+              className="w-1/2 h-52 object-cover mb-4"
             />
             <Link className="font-bold text-2xl mb-2" to={`/product/${item.id}`}>{item.name}</Link>
             <div className="gap-20 mt-5 flex justify-center items-center">
